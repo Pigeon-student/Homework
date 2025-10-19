@@ -8,50 +8,18 @@ namespace FileManager
 {
     public class Action
     {
-        
-        public int Divide(int firstNumber, int secondNumber)
-        {            
-            try
-            {               
-                try
-                {
-                    return firstNumber / secondNumber;
-                }
-                catch (DivideByZeroException)
-                {
-                    Console.Write("Cannot divide by zero. Result: ");
-                    return 0;                    
-                }
-            }
-            catch (DivideByZeroException)
-            {
-                Console.Write("Cannot divide by zero. Result: ");
-                return 0;
-            }
-        }       
-
-        public double Divide(double firstNumber, double secondNumber)
+        public bool CheckingIsInputNumber(string input)
         {
-            try { 
-                firstNumber = Convert.ToDouble(firstNumber);
-                secondNumber = Convert.ToDouble(secondNumber);
-               
-                try
-                {
-                    return firstNumber / secondNumber;
-                }
-                catch (DivideByZeroException)
-                {
-                    Console.Write("Cannot divide by zero. Result: ");
-                    return 0;
-                }
-            }
-            catch (FormatException)
+            foreach (char c in input)
             {
-                Console.Write("Invalid format. Result: ");
-                return 0;
+                if (!char.IsDigit(c))
+                {
+                     return false;
+                }
             }
-           
+
+            return true;
+
         }
     }
 }

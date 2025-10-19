@@ -8,58 +8,22 @@ namespace FileManager
     {
         static void Main()
         {
-            Console.Write("Enter first number: ");
+            Console.Write("Enter number: ");
             var userInput = Console.ReadLine();
-            int firstNumber;
 
-            if (!int.TryParse(userInput, out firstNumber))
-            {
-                Console.WriteLine("Wrong input");
-            }
-
-            Console.Write("Enter second number: ");
-            var secondNumber = 1;  
+            Console.Write($"Is this number? ");
+            Thread.Sleep(4000);
 
             try
             {
-                secondNumber = Convert.ToInt32(Console.ReadLine());
+                Action input = new Action();
+                Console.Write($"{input.CheckingIsInputNumber(userInput)}!");              
 
-                if (secondNumber == 0)
-                {
-                    throw new DivideExeption("You cant divide to zero, stupid");
-                }
             }
-            catch
+            catch (FormatException)
             {
-                Console.WriteLine("Wrong input occurred!");
+                throw new FormatException("ERROR! Some error somewhere in progaram!");
             }
-
-            try
-            {
-                Console.WriteLine($"Result is: {firstNumber / secondNumber} ");
-            }
-            catch (DivideByZeroException eh)
-            {
-                Console.WriteLine(eh.Message);
-            }
-
-            finally
-            {
-                Console.WriteLine("\nIt was a pleasure to work with you\n");
-            }
-
-
-            //Second variant:
-
-            Console.WriteLine("Second variant: ");
-
-            Action actionDivide = new Action();
-            Console.Write(actionDivide.Divide(firstNumber, secondNumber));
-
-
-
-
-
 
         }
     }

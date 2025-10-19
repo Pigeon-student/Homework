@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace FileManager
 {
-    public class DivideExeption : Exception
+    public class InputExeption : Exception
     {
                
-            public DivideExeption(string message) : base(message)
+            public InputExeption(string message) : base(message)
             {
-                 Console.WriteLine("FUCK!");
+                 Console.WriteLine("Wrong input, try enter number!");
             }
         
 
